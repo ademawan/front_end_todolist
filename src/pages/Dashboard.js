@@ -68,12 +68,13 @@ function Dashboard() {
 
         
 
-        <div className="container" style={{ marginTop: "50px" }}>
+        <div className="container" style={{ marginTop: "10px" }}>
             <div className="row justify-content-center">
                 <div className="col-md-12">
                     <div className="card border-0 rounded shadow-sm">
                         <div className="card-body">
                             SELAMAT DATANG <strong className="text-uppercase">{user.name}</strong>
+                            <br/>
                             This is your schedule for today..
                             <hr />
                             <Row className="overflow-auto menu">
