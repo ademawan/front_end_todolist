@@ -7,6 +7,7 @@ import { Col, Card, Row,Button , Modal} from "react-bootstrap";
 import { useHistory } from 'react-router';
 
 import axios from 'axios';
+import { API_URL } from '../utils/constants';
 
 function Dashboard() {
 
@@ -25,7 +26,7 @@ function Dashboard() {
         
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
-        await axios.get('http://localhost:8000/users/me')
+        await axios.get(`${API_URL}/users/me`)
         .then((response) => {
 
 
@@ -33,7 +34,7 @@ function Dashboard() {
         })
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
-        await axios.get('http://localhost:8000/users/me/tasks/today')
+        await axios.get(`${API_URL}/users/me/tasks/today`)
         .then((response) => {
 
       

@@ -6,6 +6,7 @@ import { useHistory } from 'react-router';
 
 //import axios
 import axios from 'axios';
+import { API_URL } from '../utils/constants';
 
 function Login() {
 
@@ -42,7 +43,7 @@ function Login() {
         formData.append('password', password);
 
         //send data to server
-        await axios.post('http://localhost:8000/users/login', formData)
+        await axios.post(`${API_URL}/users/login`, formData)
         .then((response) => {
 
             //set token on localStorage

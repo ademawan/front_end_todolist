@@ -174,10 +174,13 @@ const TaskList = (props) => {
           className="table table-striped table-bordered"
           {...getTableProps()}
         >
-          <thead>
+          <thead >
+            
             {headerGroups.map((headerGroup) => (
+              
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (
+                  
                   <th {...column.getHeaderProps()}>
                     {column.render("Header")}
                   </th>
@@ -187,6 +190,7 @@ const TaskList = (props) => {
           </thead>
           <tbody {...getTableBodyProps()}>
             {rows.map((row, i) => {
+              
               prepareRow(row);
               return (
                 <tr {...row.getRowProps()}>

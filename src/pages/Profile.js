@@ -8,6 +8,7 @@ import { useHistory } from 'react-router';
 
 //import axios
 import axios from 'axios';
+import { API_URL } from '../utils/constants';
 
 function Profile() {
 
@@ -26,7 +27,7 @@ function Profile() {
         //set axios header dengan type Authorization + Bearer token
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
         //fetch user from Rest API
-        await axios.get('http://localhost:8000/users/me')
+        await axios.get(`${API_URL}/users/me`)
         .then((response) => {
 
             //set response user to state
@@ -51,7 +52,7 @@ function Profile() {
     const editHanlder = async () => {
 
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-        await axios.post('http://localhost:8000/users')
+        await axios.post(`${API_URL}/users`)
         .then(() => {
 
             localStorage.removeItem("token");
