@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect,useState } from "react";
 import TaskService from "../services/TaskService";
+import { useHistory } from 'react-router';
+
 
 const AddTask = () => {
   const initialTaskState = {
@@ -19,6 +21,21 @@ const AddTask = () => {
     const { name, value } = event.target;
     setTask({ ...task, [name]: value });
   };
+
+  const history = useHistory();
+  const token = localStorage.getItem("token");
+
+
+  useEffect(() => {
+
+    if(!token) {
+
+
+        history.push('/login');
+    }
+    
+
+}, []);
 
   const saveTask = () => {
     console.log(task.note)

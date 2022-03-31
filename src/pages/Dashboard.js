@@ -74,6 +74,7 @@ function Dashboard() {
                     <div className="card border-0 rounded shadow-sm">
                         <div className="card-body">
                             SELAMAT DATANG <strong className="text-uppercase">{user.name}</strong>
+                            This is your schedule for today..
                             <hr />
                             <Row className="overflow-auto menu">
                             {tasks &&

@@ -1,8 +1,13 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import TaskService from "../services/TaskService";
 import { useTable } from "react-table";
+import { useHistory } from 'react-router';
 
-const TutorialsList = (props) => {
+
+
+
+const TaskList = (props) => {
+
   const [tutorials, setTutorials] = useState([]);
   const [searchTitle, setSearchTitle] = useState("");
   const tutorialsRef = useRef();
@@ -12,6 +17,21 @@ const TutorialsList = (props) => {
   useEffect(() => {
     retrieveTutorials();
   }, []);
+
+  const history = useHistory();
+  const token = localStorage.getItem("token");
+
+
+  useEffect(() => {
+
+    if(!token) {
+
+
+        history.push('/login');
+    }
+    
+
+}, []);
 
   const onChangeSearchTitle = (e) => {
     const searchTitle = e.target.value;
@@ -51,8 +71,10 @@ const TutorialsList = (props) => {
   const deleteTask = (rowIndex) => {
 
     TaskService.remove(rowIndex)
+    
       .then((response) => {
-        props.history.push("/tasks");
+        alert("success delete")
+        refreshList()
 
       })
       .catch((e) => {
@@ -77,6 +99,11 @@ const TutorialsList = (props) => {
       {
         Header: "Status",
         accessor: "status",
+       
+      },
+      {
+        Header: "Todo_date",
+        accessor: "todo_date_time",
        
       },
       {
@@ -116,8 +143,8 @@ const TutorialsList = (props) => {
   });
 
   return (
-    <div className="list row mt-4">
-      <div className="col-md-8">
+    <div className="list row mt-4" >
+      <div className="col-md-8" hidden>
         <div className="input-group mb-3">
           <input
             type="text"
@@ -139,10 +166,10 @@ const TutorialsList = (props) => {
       </div>
       <div className="col-md-4">
      
-                <a className="btn btn-primary" href="/add">Add New Task</a>
+                <a className="btn btn-primary ml-2" href="/add">Add New Task</a>
              
       </div>
-      <div className="col-md-12 list">
+      <div className="col-md-12 list mt-2">
         <table
           className="table table-striped table-bordered"
           {...getTableProps()}
@@ -182,4 +209,4 @@ const TutorialsList = (props) => {
   );
 };
 
-export default TutorialsList;
+export default TaskList;

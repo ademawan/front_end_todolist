@@ -1,7 +1,27 @@
 import React, { useState, useEffect } from "react";
 import TaskService from "../services/TaskService";
+import { useHistory } from 'react-router';
+
+
 
 const Tutorial = props => {
+
+
+  const history = useHistory();
+  const token = localStorage.getItem("token");
+
+
+  useEffect(() => {
+
+    if(!token) {
+
+
+        history.push('/login');
+    }
+    
+
+}, []);
+
   const initialTaskState = {
     task_uid: null,
     title: "",
