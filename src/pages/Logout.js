@@ -5,7 +5,6 @@ import { Col } from "react-bootstrap";
 import { useHistory } from 'react-router';
 
 import axios from 'axios';
-import { API_URL } from '../utils/constants';
 
 function Logout() {
 
@@ -29,7 +28,7 @@ function Logout() {
     const logoutHanlder = async () => {
 
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-        await axios.post(`${API_URL}/users/logout`)
+        await axios.post('https://rogerdev-beckend-todolist.herokuapp.com/users/logout')
         .then(() => {
 
             localStorage.removeItem("token");

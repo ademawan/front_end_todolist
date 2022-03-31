@@ -26,7 +26,7 @@ function Dashboard() {
         
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
-        await axios.get(`${API_URL}/users/me`)
+        await axios.get('https://rogerdev-beckend-todolist.herokuapp.com/users/me')
         .then((response) => {
 
 
@@ -34,7 +34,7 @@ function Dashboard() {
         })
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
 
-        await axios.get(`${API_URL}/users/me/tasks/today`)
+        await axios.get('https://rogerdev-beckend-todolist.herokuapp.com/users/me/tasks/today')
         .then((response) => {
 
       

@@ -1,6 +1,5 @@
 
 import React, { useState } from 'react';
-import  { API_URL } from "../utils/constants";
 
 
 import { useHistory } from 'react-router';
@@ -38,7 +37,7 @@ function Register() {
         formData.append('address', address);
 
 
-        await axios.post(`${API_URL}/users/register`, formData)
+        await axios.post('https://rogerdev-beckend-todolist.herokuapp.com/users/register', formData)
 
 
         .then(function (response) {

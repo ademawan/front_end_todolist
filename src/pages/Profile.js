@@ -27,7 +27,7 @@ function Profile() {
         //set axios header dengan type Authorization + Bearer token
         axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
         //fetch user from Rest API
-        await axios.get(`${API_URL}/users/me`)
+        await axios.get('https://rogerdev-beckend-todolist.herokuapp.com/users/me')
         .then((response) => {
 
             //set response user to state
