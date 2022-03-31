@@ -14,6 +14,7 @@ const NavbarComponent = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Nav.Link href="/dashboard">Home</Nav.Link>
+            <Nav.Link href="/tasks">Management</Nav.Link>
             <Nav.Link href="/profile">Profile</Nav.Link>
             <Nav.Link href="/logout">Logout</Nav.Link>
           </Nav>

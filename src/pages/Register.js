@@ -1,60 +1,51 @@
-//import hook react
+
 import React, { useState } from 'react';
 
-//import hook useHitory from react router dom
+
 import { useHistory } from 'react-router';
 
-//import axios
+
 import axios from 'axios';
 
 function Register() {
 
-    //define state
+
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [gender, setGender] = useState("male");
     const [address, setAddress] = useState("");
     const [password, setPassword] = useState("");
 
-    //define state validation 
+
     const [validation, setValidation] = useState([]);
 
-    //define history
+
     const history = useHistory();
 
-    //function "registerHanlder"
+
     const registerHandler = async (e) => {
         e.preventDefault();
         
-        //initialize formData
+
         const formData = new FormData();
 
-        //append data to formData
+    
         formData.append('name', name);
         formData.append('email', email);
         formData.append('password', password);
         formData.append('gender', gender);
         formData.append('address', address);
 
-        //send data to server
-        await axios.post('http://localhost:8000/users/register', formData)
-        // .then(() => {
 
-        //     //redirect to logi page
-        //     console.log(response.data)
-        //     // history.push('/');
-        // })
+        await axios.post('http://localhost:8000/users/register', formData)
+
 
         .then(function (response) {
-            // handle success
-            // console.log(formData);
-            // console.log(response);
+          
             history.push('/login');
           })
 
         .catch((error) => {
-            console.log(error)
-            //assign error to state "validation"
             setValidation(error.response.data);
         })
     };
