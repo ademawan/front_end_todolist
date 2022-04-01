@@ -1,6 +1,6 @@
 # This project has been deploy 
-# https://rogerdev-todo-list.herokuapp.com/register 
-# https://rogerdev-todo-list.herokuapp.com/login
+ https://rogerdev-todo-list.herokuapp.com/register 
+ https://rogerdev-todo-list.herokuapp.com/login
 
 # Getting Started with Create React App
 
