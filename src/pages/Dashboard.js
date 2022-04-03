@@ -45,11 +45,11 @@ function Dashboard() {
     useEffect(() => {
 
  
-        if(!token) {
+        // if(!token) {
 
  
-            history.push('/login');
-        }
+        //     history.push('/login');
+        // }
         
  
         fetchData();
